@@ -5,13 +5,14 @@ namespace ParseJumoreski
 
     class Program
     {
+        static Random r = new();
         public async static Task Main()
         {
             using ApplicationContext db = new();
             {
                 int t = db.Jumoreskis.Count();
-                Random r = new();
-                Console.WriteLine(db.Jumoreskis.Where(s => s.Id == t).Select(s => s.Text).FirstOrDefault().ToString());
+                int rand = r.Next(1,t);
+                Console.WriteLine(db.Jumoreskis.Where(s => s.Id == rand).Select(s => s.Text).Single().ToString());
             }
         }
     }
