@@ -11,7 +11,7 @@ namespace ParseJumoreski
             {
                 int t = db.Jumoreskis.Count();
                 Random r = new();
-                Console.WriteLine(db.Jumoreskis.Where(s => s.Id == t).Select(s => s.Text).Take(1));
+                Console.WriteLine(db.Jumoreskis.Where(s => s.Id == t).Select(s => s.Text).FirstOrDefault().ToString());
             }
         }
     }
